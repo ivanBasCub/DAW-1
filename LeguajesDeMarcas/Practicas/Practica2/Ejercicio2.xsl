@@ -3,9 +3,16 @@
     <xsl:template match="/">
         <html>
             <head>
-                
+                <title> Ejercicio 2 XSLT </title>
+                <style>
+                </style>
             </head>
             <body>
+                <h1> Listas de Discografias </h1>
+                <ul>
+                    <xsl:for-each select="">
+                    </xsl:for-each>
+                </ul>
             </body>
         </html>
     </xsl:template>
