@@ -1,0 +1,83 @@
+<catalogo>
+  <artistas>
+    <artista id="uno">
+      <nombre>Carlos Jean</nombre>
+      <nacionalidad>España</nacionalidad>
+    </artista>
+    <artista id="dos">
+      <nombre>Miguel Rios</nombre>
+      <nacionalidad>España</nacionalidad>
+    </artista>
+    <artista id="tres">
+      <nombre>La Mala</nombre>
+      <nacionalidad>España</nacionalidad>
+    </artista>
+    <artista id="cuatro">
+      <nombre>Etta James</nombre>
+      <nacionalidad>USA</nacionalidad>
+    </artista>
+  </artistas>
+  <discograficas>
+    <discografica id="uno">
+      <nombre>Motown</nombre>
+      <nacionalidad>USA</nacionalidad>
+      <web>https://www.motownrecords.com/</web>
+    </discografica>
+    <discografica id="dos">
+      <nombre>Subterfuge</nombre>
+      <nacionalidad>España</nacionalidad>
+      <web>https://www.subterfuge.com/</web>
+    </discografica>
+    <discografica id="tres">
+      <nombre>Sony</nombre>
+      <nacionalidad>USA</nacionalidad>
+      <web>https://www.sonymusic.es/</web>
+    </discografica>
+  </discograficas>
+  <cds>
+    <cd autor="uno" disc="dos">
+      <titulo>Bad Jean</titulo>
+      <precio>15</precio>
+      <anio>2000</anio>
+    </cd>
+    <cd autor="dos" disc="tres">
+      <titulo>Rock and Rios</titulo>
+      <precio>12</precio>
+      <dto>25</dto>
+      <anio>1982</anio>
+    </cd>
+    <cd autor="tres" disc="tres">
+      <titulo>Malamarismo</titulo>
+      <precio>10.90</precio>
+      <dto>5</dto>
+      <anio>2008</anio>
+    </cd>
+    <cd autor="cuatro" disc="uno">
+      <titulo>At last</titulo>
+      <precio>13</precio>
+      <anio>1979</anio>
+    </cd>
+    <cd autor="cuatro" disc="uno">
+      <titulo>Chess soul sisters</titulo>
+      <precio>16</precio>
+      <dto>10</dto>
+      <anio>1980</anio>
+    </cd>
+    <cd autor="dos" disc="dos">
+      <titulo>Michael Rios</titulo>
+      <precio>10</precio>
+      <anio>1973</anio>
+    </cd>
+    <cd autor="uno" disc="dos">
+      <titulo>Party Stereo</titulo>
+      <precio>15.50</precio>
+      <anio>2009</anio>
+    </cd>
+    <cd autor="tres" disc="tres">
+      <titulo>Dirty Bailarina</titulo>
+      <precio>13</precio>
+      <dto>30</dto>
+      <anio>1979</anio>
+    </cd>
+  </cds>
+</catalogo>
