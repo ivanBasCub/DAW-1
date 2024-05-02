@@ -31,7 +31,7 @@ public class App2 {
 		aux[1] = new LineOrder("Pera",25,30);
 		aux[2] = new LineOrder("Mandarina",15,35);
 		
-		Arrays.sort(aux,new LineOrderComparator());
+		Arrays.sort(aux,aux[0]);
 		
 		for (LineOrder lineOrder : aux) {
 			System.out.println(lineOrder.toString()+ "--" + lineOrder.getTotal());

@@ -3,7 +3,7 @@ package exer1Class;
 import java.util.Comparator;
 
 /**
- * Compares objects from  @linkLineOrder using the total
+ * Compares objects from  {@link LineOrder} using the total
  */
 public class LineOrderComparator implements Comparator<LineOrder> {
 

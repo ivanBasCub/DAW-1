@@ -1,6 +1,7 @@
 package exer1Class;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,17 +10,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="Line")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LineOrder implements Serializable{
+public class LineOrder implements Serializable, Comparable,Comparator<LineOrder>{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	double price;
-	int units;
+	private double price;
+	private int units;
 	@XmlAttribute(name="des")
-	String description;
+	private String description;
 	
 	
 	
@@ -30,9 +31,9 @@ public class LineOrder implements Serializable{
 
 	public LineOrder(String description, int units, double price ) {
 		super();
-		this.price = price;
-		this.units = units;
-		this.description = description;
+		setPrice(price);
+		setUnits(units);
+		setDescription(description);
 	}
 	
 	@Override
@@ -42,6 +43,60 @@ public class LineOrder implements Serializable{
 	
 	public double getTotal() {
 		return units*price;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getUnits() {
+		return units;
+	}
+
+	public void setUnits(int units) {
+		this.units = units;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	// Method to Compare To
+	@Override
+	public int compareTo(Object otter) {
+		if(this.price == ((LineOrder) otter).getPrice()) {
+			return 0;
+		}
+		else if(this.price < ((LineOrder) otter).getPrice()) {
+			return -1;
+		}
+		else {
+			return 1;
+		}
+		
+		// return (int) (this.price - ((LineOrder) otter).getPrice());
+	}
+
+	@Override
+	public int compare(LineOrder o1, LineOrder o2) {
+		double total1 = o1.getTotal();
+		double total2 = o2.getTotal();
+		
+		if(total1 < total2) {
+			return -1;
+		}else if(total1 > total2) {
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 	
 	

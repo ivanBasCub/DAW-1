@@ -7,6 +7,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -26,6 +28,8 @@ public class App {
 		aux[0] = new LineOrder("Manzana",10,40);
 		aux[1] = new LineOrder("Pera",25,30);
 		aux[2] = new LineOrder("Mandarina",15,35);
+		
+		Arrays.sort(aux);
 		
 		Lines order = new Lines(aux);
 		do {
