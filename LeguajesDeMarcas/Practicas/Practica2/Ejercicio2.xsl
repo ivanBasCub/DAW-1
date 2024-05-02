@@ -8,12 +8,21 @@
                 </style>
             </head>
             <body>
-                <h1> Listas de Discografias </h1>
+                <h3> Listas de Discografias </h3>
                 <ul>
-                    <xsl:for-each select="">
+                    <xsl:for-each select="//discograficas/discografica">
+                        <li><xsl:value-of select="nombre"/></li>
+                        <li><xsl:value-of select="nacionalidad"/></li>
+                        <li><a href="{web}" target="_blank">Enlace Web</a></li>
+                        <ol>
+                            <xsl:for-each select="//cds/cd[@disc = current()/@id]">
+                                <xsl:sort select="titulo"/>
+                                <li><xsl:value-of select="titulo"/></li>
+                            </xsl:for-each>
+                        </ol>
                     </xsl:for-each>
                 </ul>
             </body>
         </html>
     </xsl:template>
-<xsl:stylesheet>
+</xsl:stylesheet>
