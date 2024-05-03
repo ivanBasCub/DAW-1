@@ -28,6 +28,7 @@
 					</tr>
 
 					<xsl:for-each select="//asignaturas/asignatura[current()/estudios/asignaturas/asignatura/@codigo = @id]">
+						<xsl:sort select="nombre"/>
 						<tr>
 							<td><xsl:value-of select="nombre"/></td>
 							<td><xsl:value-of select ="creditos_teoricos"/></td>
