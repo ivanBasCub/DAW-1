@@ -17,6 +17,7 @@
       <nacionalidad>USA</nacionalidad>
     </artista>
   </artistas>
+
   <discograficas>
     <discografica id="uno">
       <nombre>Motown</nombre>
@@ -34,6 +35,7 @@
       <web>https://www.sonymusic.es/</web>
     </discografica>
   </discograficas>
+  
   <cds>
     <cd autor="uno" disc="dos">
       <titulo>Bad Jean</titulo>
