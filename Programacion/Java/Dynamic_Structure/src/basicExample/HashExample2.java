@@ -2,7 +2,6 @@ package basicExample;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.function.Predicate;
 
 public class HashExample2 {
 
@@ -29,6 +28,9 @@ public class HashExample2 {
 		System.out.println("--------------------------");
 		visualizeSet(daw2);
 		daw2.remove(alu2); // Remove a object
+		
+		// removeElement(daw2);
+		
 		System.out.println("--------------------------");
 		visualizeSet(daw2);
 
@@ -37,6 +39,18 @@ public class HashExample2 {
 		// daw2.removeAll(daw1); // Remove a collection
 		System.out.println("--------------------------");
 		visualizeSet(daw2);
+	}
+
+	private static void removeElement(HashSet<Alumno> daw2) {
+		Iterator iter = daw2.iterator();
+		
+		while(iter.hasNext()) {
+			Alumno aux = (Alumno) iter.next();
+			
+			if(aux.getId()==4) {
+				iter.remove();
+			}
+		}
 	}
 	
 	public static void visualizeSet(HashSet<Alumno> daw1) {
