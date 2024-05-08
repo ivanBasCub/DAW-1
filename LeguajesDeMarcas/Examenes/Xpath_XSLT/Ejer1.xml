@@ -1,0 +1,10 @@
+Consultas Xpath
+    Consulta 1
+    //facturas/factura[articulos/articulo/precio > 25]/@idfactura
+    Consulta 2
+    //clientes/cliente[@idcliente = //facturas/factura/@idcliente and //facturas/factura/articulos/articulo/@id = "005"]/nombre
+    Consulta 3
+    //articulos/articulo[@id = //facturas/factura[position()=1]/articulos/articulo/@id]/nombre
+    Consulta 4
+    //facturas/factura[articulos/articulo/@id = //articulos/articulo[contains(descuento)]/@id]/@idfacturas
+
