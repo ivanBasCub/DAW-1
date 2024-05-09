@@ -1,0 +1,1 @@
+Un programa que lea de un fichero del patner list y que lo meta dentro de un ArrayList

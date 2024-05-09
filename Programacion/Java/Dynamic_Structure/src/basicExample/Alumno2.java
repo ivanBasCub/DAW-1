@@ -16,6 +16,12 @@ public Alumno2(int id, String nombre, int edad, String curso) {
 }
 
 
+public Alumno2(String string, int i) {
+	this.edad = i;
+	this.nombre = string;
+}
+
+
 public int getId() {
 	return id;
 }
@@ -54,7 +60,7 @@ public String getCurso() {
 public void setCurso(String curso) {
 	Curso = curso;
 }
-
+/*
 @Override
 public boolean equals(Object obj) {
 	if (this.getId() ==((Alumno2) obj).getId() && this.getCurso().equals(((Alumno2) obj).getCurso())) {
@@ -63,7 +69,7 @@ public boolean equals(Object obj) {
 		return false;
 	}
 }
-
+*/
 
 @Override
 public int hashCode() {
