@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xsmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template match="/">
 		<html>
 			<head>
@@ -35,7 +35,6 @@
 						font-weight: 800;
 					}
 				</style>
-				<link rel="stylesheet" type="text/css" href="examen.css">
 			</head>
 			<body>
 				<!-- Ejercicio 1 -->
@@ -95,8 +94,9 @@
 							<th>Precio</th>
 							<th>Oferta</th>
 						</tr>
-						<tr>
-							<xsl:for-each select="//articulos/articulo">
+						
+						<xsl:for-each select="//articulos/articulo[descripcion != '']">
+							<tr>
 								<td><xsl:value-of select="nombre"/></td>
 								<td><xsl:value-of select="descripcion"/></td>
 								<td><xsl:value-of select="precio"/></td>
@@ -108,8 +108,9 @@
 										<label>SUPER OFERTA</label>
 									</xsl:if>
 								</td>
-							</xsl:for-each>
-						</tr>
+							</tr>
+						</xsl:for-each>
+						
 					</table>
 				</div>
 

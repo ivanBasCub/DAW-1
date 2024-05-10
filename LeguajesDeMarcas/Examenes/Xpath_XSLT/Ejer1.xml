@@ -7,4 +7,3 @@ Consultas Xpath
     //articulos/articulo[@id = //facturas/factura[position()=1]/articulos/articulo/@id]/nombre
     Consulta 4
     //facturas/factura[articulos/articulo/@id = //articulos/articulo[contains(descuento)]/@id]/@idfacturas
-
