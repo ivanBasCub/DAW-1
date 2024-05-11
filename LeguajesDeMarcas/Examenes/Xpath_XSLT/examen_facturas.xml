@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' ?>
+<facturacion>
+    <facturas>
+        <factura idfactura="001" año="2024" idcliente="101">
+            <fecha>2024-04-30</fecha>
+            <articulos>
+                <articulo id="001">
+                    <cantidad>2</cantidad>
+                    <precio>24.99</precio>
+                </articulo>
+                <articulo id="002">
+                    <cantidad>1</cantidad>
+                    <precio>25.00</precio>
+                </articulo>
+            </articulos>
+        </factura>
+        <factura idfactura="002" año="2024" idcliente="102">
+            <fecha>2024-05-15</fecha>
+            <articulos>
+                <articulo id="003">
+                    <cantidad>3</cantidad>
+                    <precio>23.33</precio>
+                </articulo>
+                <articulo id="005">
+                    <cantidad>3</cantidad>
+                    <precio>15.00</precio>
+                </articulo>
+            </articulos>
+        </factura>
+        <factura idfactura="003" año="2024" idcliente="101">
+            <fecha>2024-06-02</fecha>
+            <articulos>
+                <articulo id="002">
+                    <cantidad>2</cantidad>
+                    <precio>20.00</precio>
+                </articulo>
+                <articulo id="003">
+                    <cantidad>1</cantidad>
+                    <precio>30.00</precio>
+                </articulo>
+            </articulos>
+        </factura>
+        <factura idfactura="004" año="2023" idcliente="103">
+            <fecha>2023-12-5</fecha>
+            <articulos>
+                <articulo id="001">
+                    <cantidad>1</cantidad>
+                    <precio>24.99</precio>
+                </articulo>
+                <articulo id="003">
+                    <cantidad>2</cantidad>
+                    <precio>32.50</precio>
+                </articulo>
+                <articulo id="004">
+                    <cantidad>1</cantidad>
+                    <precio>19.99</precio>
+                </articulo>
+                <articulo id="005">
+                    <cantidad>2</cantidad>
+                    <precio>15.50</precio>
+                </articulo>
+            </articulos>
+        </factura>
+    </facturas>
+    <articulos>
+        <articulo id="001">
+            <nombre>Camiseta</nombre>
+            <descripcion>Camiseta de algodón</descripcion>
+            <precio>24.99</precio>
+        </articulo>
+        <articulo id="002">
+            <nombre>Pantalón</nombre>
+            <descripcion>Pantalón vaquero</descripcion>
+            <precio>25.00</precio>
+        </articulo>
+        <articulo id="003">
+            <nombre>Zapatos</nombre>
+            <descripcion>Zapatos de cuero</descripcion>
+            <precio>35.00</precio>
+            <descuento>5.00</descuento>
+        </articulo>
+        <articulo id="004">
+            <nombre>Gorra</nombre>
+            <descripcion>Gorra deportiva</descripcion>
+            <precio>19.99</precio>
+            <descuento>10.00</descuento>
+        </articulo>
+        <articulo id="005">
+            <nombre>Bufanda</nombre>
+            <descripcion>Bufanda de lana</descripcion>
+            <precio>15.50</precio>
+            <descuento>20.00</descuento>
+        </articulo>
+    </articulos>
+    <clientes>
+        <cliente id="101">
+            <nombre>Juan Pérez</nombre>
+            <cif_nif>12345678A</cif_nif>
+            <direccion>Calle Mayor, 123</direccion>
+            <email>juan@example.com</email>
+            <web>www.juanperez.com</web>
+            <telefono>987654321</telefono>
+        </cliente>
+        <cliente id="102">
+            <nombre>María López</nombre>
+            <cif_nif>87654321B</cif_nif>
+            <direccion>Avenida Libertad, 456</direccion>
+            <email>maria@example.com</email>
+            <web>www.marialopez.com</web>
+            <telefono>654321987</telefono>
+        </cliente>
+        <cliente id="103">
+            <nombre>Carlos Martínez</nombre>
+            <cif_nif>56789012C</cif_nif>
+            <direccion>Calle Sol, 789</direccion>
+            <email>carlos@example.com</email>
+            <web>www.carlosmartinez.com</web>
+            <telefono>123456789</telefono>
+        </cliente>
+    </clientes>
+</facturacion>
+
+

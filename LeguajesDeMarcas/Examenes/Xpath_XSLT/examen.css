@@ -1,0 +1,26 @@
+.Ejer1 p{
+	background-color: green;
+	color: white;
+}
+.Ejer1 table{
+	border-collapse: collapse;
+}
+.Ejer1 th{
+	background-color: yellow;
+}
+.Ejer2 table{
+	border-collapse: collapse;
+}
+.Ejer2 th{
+	background-color: blue;
+	color: white;
+}
+.Ejer4 table{
+	border-collapse: collapse;
+}
+.Ejer4 th{
+	background-color: orange;
+}
+.Ejer5 p{
+	font-weight: 800;
+}
