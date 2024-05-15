@@ -96,7 +96,7 @@ public class AppAcademicos1 {
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(".\\archives",filename)));
 			
-			oos.writeObject(oos);
+			oos.writeObject(academia);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
