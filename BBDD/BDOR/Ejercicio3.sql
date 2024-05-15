@@ -60,3 +60,19 @@ insert into tabla_alumnos_total values (1,'Ivan','Bascones', T_direccion('Calle 
 tipo_asignatura_alumn(
 	t_asignatura_alum(1,'BBDD',7.4),
 	t_asignatura_alum(2,'Programacion',7.2)));
+
+insert into tabla_alumnos_total values (2,'Angela','Ruiz', T_direccion('Calle Prueba',20,'Palencia',34004),t_telefono('634582174'),
+tipo_asignatura_alumn(
+	t_asignatura_alum(1,'BBDD',4)));
+
+-- Apartado F
+select des_asig, nota_asig from the
+(select asig_alum from tabla_alumnos_total where idalum = 1)
+where nota_asig > 5;
+
+-- Apartado G
+select idalum, nom_alum, ape_alum, 
+cursor (select tt.des_asig, tt.nota_asig from table(t.asig_alum) tt) as asignaturas
+from tabla_alumnos_total t;
+
+-- Apartado H
