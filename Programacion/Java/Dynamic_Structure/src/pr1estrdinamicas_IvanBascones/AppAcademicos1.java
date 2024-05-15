@@ -10,20 +10,24 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 import javax.swing.JOptionPane;
 
-import hashMap.Academico;
 
 public class AppAcademicos1 {
 
 	public static void main(String[] args) {
 		HashMap<Character, Academico> realAcademia = new HashMap<>();
-		
-		for (int i = 0; i < 3; i++) {
-			nuevoAcademico(realAcademia);
-		}
+		// 	EL METODO FUNCIONA POR LO QUE VOY A DEJAR 4 EJEMPLOS PARA HACER LAS PRUEBAS
+
+//		for (int i = 0; i < 3; i++) {
+//			nuevoAcademico(realAcademia);
+//		}
+		realAcademia.put('Z',new Academico("Ivan",2010));
+		realAcademia.put('J',new Academico("Zacarias",1800));
+		realAcademia.put('A',new Academico("Julio",1700));
+		realAcademia.put('F',new Academico("Angela",2100));
 		
 		System.out.println("Ordenar por el nombre:");
 		listaAcademicosNom(realAcademia);
@@ -84,9 +88,13 @@ public class AppAcademicos1 {
 	
 	// MOSTAR LA LISTA DE ACADEMICOS EN ORDEN LA SILLA
 	private static void ListaAcademicoClave(HashMap<Character, Academico> academia) {
-        for (Map.Entry<Character, Academico> entry : academia.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue().getName());
-        }
+		TreeMap<Character, Academico> aux = new TreeMap<>();
+		
+		aux.putAll(academia);
+		
+		for (char letra : aux.keySet()) {
+			System.out.println("Clave: " + letra + ", Nombre: " + aux.get(letra).getName());
+		}
     }
 	
 	// GUARDAR LA INFORMACION EN UN ARCHIVO DE DATOS
@@ -98,10 +106,8 @@ public class AppAcademicos1 {
 			
 			oos.writeObject(academia);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

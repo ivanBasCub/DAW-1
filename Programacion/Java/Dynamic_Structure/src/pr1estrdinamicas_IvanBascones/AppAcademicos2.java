@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 import javax.swing.JOptionPane;
 
-import hashMap.Academico;
+
 
 public class AppAcademicos2 {
 
@@ -35,13 +35,10 @@ public class AppAcademicos2 {
 			realAcademia = (HashMap<Character, Academico>) archive.readObject();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -79,19 +76,23 @@ public class AppAcademicos2 {
 	// MOSTAR LA LISTA DE ACADEMICOS EN ORDEN AL NOMBRE
 	private static void listaAcademicosNom(HashMap<Character, Academico> academia) {
 		List<Academico> lista = new ArrayList<>(academia.values());
-			
+	
 		Collections.sort(lista);
 			
 		for (Academico academico : lista) {
-			System.out.println(academico.getName());
+			System.out.println(">" + academico.getName());
 		}
 	}
 	
 	// MOSTAR LA LISTA DE ACADEMICOS EN ORDEN LA SILLA
-	private static void ListaAcademicoClave(HashMap<Character, Academico> academia) {
-		for (Map.Entry<Character, Academico> entry : academia.entrySet()) {
-			System.out.println(entry.getKey() + " " + entry.getValue().getName());
-	    }
+	private static void ListaAcademicoClave(HashMap<Character, Academico> academia) {	
+		TreeMap<Character, Academico> aux = new TreeMap<>();
+		
+		aux.putAll(academia);
+		
+		for (char letra : aux.keySet()) {
+			System.out.println("Clave: " + letra + ", Nombre: " + aux.get(letra).getName());
+		}
 	}
 		
 	// CREAMOS EL METODO DE NUEVOACADEMICO PARA INSERTAR EN EL MAPA LOS DATOS

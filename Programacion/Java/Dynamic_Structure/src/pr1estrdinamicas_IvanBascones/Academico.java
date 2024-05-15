@@ -36,6 +36,7 @@ public class Academico implements Comparable<Academico>,Serializable{
 	
 	@Override
 	public int compareTo(Academico o) {
-		return this.name.compareToIgnoreCase(o.getName());
+		String aux=this.name;
+		return aux.compareToIgnoreCase(o.getName());
 	}
 }
