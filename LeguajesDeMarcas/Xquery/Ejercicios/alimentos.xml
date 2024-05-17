@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<supermercado>
+	<producto categoria="carne">
+		<descripcion origen="Holanda"></descripcion>
+		<fabricante>Buflethuft</fabricante>
+		<caducidad>2023</caducidad>
+		<precio>14</precio>
+	</producto>
+	<producto categoria="vegetal">
+		<descripcion origen="España">Pepino</descripcion>
+		<fabricante></fabricante>
+		<caducidad>2023</caducidad>
+		<precio unid="pieza">1</precio>
+	</producto>
+	<producto categoria="pescado">
+		<descripcion origen="Francia">MerluXa</descripcion>
+		<fabricante>Lepez</fabricante>
+		<caducidad>2022</caducidad>
+		<precio>12</precio>
+	</producto>
+	<producto categoria="pescado">
+		<descripcion origen="Francia">Bacalao Patxi</descripcion>
+		<fabricante>Lepez</fabricante>
+		<caducidad>2022</caducidad>
+		<precio unid="kg">10</precio>
+	</producto>
+	<producto categoria="dulces">
+		<descripcion origen="España">Pastas</descripcion>
+		<fabricante>Dulciora X</fabricante>
+		<caducidad>2025</caducidad>
+		<precio unid="docenas">6</precio>
+	</producto>
+</supermercado>
