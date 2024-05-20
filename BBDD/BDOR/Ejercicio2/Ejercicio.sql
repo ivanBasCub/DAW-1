@@ -55,5 +55,3 @@ insert into empleado_bdor
 	where e.CIF = 'B12888333';
 
 -- Empleado I
-select codEmpleado, nomEmpleado , DEREF(emp)
-from empleado_bdor
