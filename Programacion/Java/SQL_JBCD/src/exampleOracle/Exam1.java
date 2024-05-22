@@ -17,7 +17,7 @@ public class Exam1 {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection conex = DriverManager.getConnection("jdbc:oracle:thin:@10.1.6.249:1521:xe",username,password);
 			Statement stmt = conex.createStatement();
-			ResultSet query1 = stmt.executeQuery("select * from fabricante");
+			ResultSet query1 = stmt.executeQuery("select * from fabricante order by nomfab");
 			
 			ArrayList<Fabricante> list = new ArrayList<>();
 			
@@ -26,7 +26,7 @@ public class Exam1 {
 	 	     }
 			
 			
-			Collections.sort(list);
+			// Collections.sort(list);
 			
 			for (Fabricante fabricante : list) {
 				System.out.println(fabricante.toString());
@@ -36,6 +36,24 @@ public class Exam1 {
 			
 			//insercionDatos(conex);
 			
+			// Prepared Statement 
+			// LOS ? DE LA SENTENCIA SQL SON PARAMETROS QUE METENMOS LOS LOS SET X MAS ADELANTE
+			String sql = "select * from articulo where codart = ? OR nomart = ?";
+			int id = 8;
+			// CREAMOS UN STATEMAMENT CON UNA SENTENCIA SQL PREPARADA
+			PreparedStatement test2 = conex.prepareStatement(sql);
+			// COMANDO PARA INSERTAR LA INFORMACION DENTRO DE LA SENTENCIA
+			test2.setInt(1, id);
+			test2.setString(2, "portatil");
+			ResultSet query2 = test2.executeQuery();
+			
+			while(query2.next()) {
+				for (int i = 1; i <= query2.getMetaData().getColumnCount(); i++) {
+					System.out.print(query2.getString(i)+"---");
+				}System.out.println();
+			}
+			
+			test2.close();
 			conex.close();
 			
 		} catch (ClassNotFoundException | SQLException e) {

@@ -33,13 +33,7 @@ public class Fabricante implements Comparable<Fabricante> {
 
 	@Override
 	public int compareTo(Fabricante o) {
-		if(this.name.charAt(0) >= o.getName().charAt(0)) {
-			return 1;
-		}else if(this.name.charAt(0) <= o.getName().charAt(0)) {
-			return -1;
-		}else {
-			return 0;
-		}
+		return this.getName().compareTo(o.getName());
 	}
 	
 
