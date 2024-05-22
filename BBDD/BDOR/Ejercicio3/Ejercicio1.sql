@@ -47,10 +47,6 @@ create or replace type TObjProducto as object(
 )
 /
 
-create or replace type TObjLineaVenta as object(
-	codLinea number,
-	cantidad number,
-	Producto  ref TObjProducto,
-	Venta ref tObjVenta
-)
+
+
 

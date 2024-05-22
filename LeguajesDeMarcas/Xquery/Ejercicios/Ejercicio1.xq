@@ -37,8 +37,7 @@ return <lib>"caducidad"{$cad}</lib>
 
 (:Ejercicio 7
 for $p in //producto
-order by $p/@categoria
-order by $p/descripcion
+order by $p/@categoria, $p/descripcion
 return $p
 :)
 
@@ -49,12 +48,62 @@ return count($cant)
 :)
 
 (:Ejercicio 9
- 
+   let $p := //producto
+  return ($p/descripcion, "Total: ", count($p))
 :)
-let $p := //producto
-return ($p/descripcion, "Total: ", count($p))
+
 (:Ejercicio 10
-let $p := //producto
-return ("Precio Minimo:",min($p/precio),"Precio Maximo:",max($p/precio))
+  let $p := //producto
+  return ("Precio Minimo:",min($p/precio),"Precio Maximo:",max($p/precio))
+:)
+
+(:Ejercicio 11
+for $p in //producto
+order by ($p/precio)*1.21
+return ("Descripcion:", string ($p/descripcion),"Precio Sin IVA:",string ($p/precio),"Precio con IVA",($p/precio)*1.21,"_______________________")
+:)
+
+(:Ejercicio 12
+let $p := producto
+return ("Total",sum($p/precio))
+:)
+
+(:Ejercicio 13
+let $total := sum(//producto/precio)
+return (
+   for $p in //producto
+  return ("Precio Producto:",string($p/precio)),"Sumatorio de todos los productos",$total)
+:)
+
+(:Ejercicio 14
+for $p in //producto
+return (<descripcion> {string($p/descripcion)}</descripcion>,
+       <fabricantes> {count($p/fabricante)}</fabricantes>)
+:)
+
+(:Ejercicio 15
+for $p in //producto
+return <Producto>{string(concat($p/descripcion,"(",count($p/fabricante),")"))}</Producto>
+:)
+
+(:Ejercicio 16
+for $p in //producto
+where ends-with($p/caducidad,"3")
+return $p
+:)
+
+(:Ejercicio 17
+for $p in //producto
+where starts-with($p/@categoria,"c")
+return $p
+:)
+
+(:Ejercicio 18wqqqqqqqqqqqqqqqq
+for $p in //producto
+where contains($p/descripcion,"x") or contains($p/descripcion,"X")
+return $p
+:)
+
+(:Ejercicio 19
 :)
 
