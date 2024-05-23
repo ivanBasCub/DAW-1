@@ -1,11 +1,31 @@
 package fichero;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 public class Palabras {
 
-	String[] palabras = {"pollo","pallo","mocos","tomos"};
+	ArrayList<String> palabras = new ArrayList<>();
 	
 	public String aleatorio() {
-		int i = (int) (Math.random() * (palabras.length - 1));
-		return palabras[i];
+		int num = (int) (Math.random() * (palabras.size()));
+		return palabras.get(num);
+	}
+	
+	public void readFile() {
+		try {
+			ObjectInputStream obj = new ObjectInputStream(new FileInputStream(new File("..\\archives\\data.txt")));
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

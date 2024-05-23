@@ -16,11 +16,9 @@ public class Controlador implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String result = mod.aleatorio();
-		ventana.resultadolbl.setText(result);	
+		
 	}
 
-	
 }
 
 

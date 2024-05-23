@@ -45,7 +45,7 @@ public class Vista extends JFrame {
 		
 		setTitle("Calculadora");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 300, 500);
+		setBounds(100, 100, 400, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -62,6 +62,12 @@ public class Vista extends JFrame {
 		JButton restarBtn = new JButton("Restar");
 		
 		PanelBotones.add(restarBtn);
+		
+		JButton multiplicabtn = new JButton("Multiplicar");
+		PanelBotones.add(multiplicabtn);
+		
+		JButton dividirBtn = new JButton("Dividir");
+		PanelBotones.add(dividirBtn);
 		
 		
 		JPanel panelPedir = new JPanel();
@@ -83,6 +89,8 @@ public class Vista extends JFrame {
 		
 		sumarBtn.addActionListener(control);
 		restarBtn.addActionListener(control);
+		multiplicabtn.addActionListener(control);
+		dividirBtn.addActionListener(control);
 	}
 
 }

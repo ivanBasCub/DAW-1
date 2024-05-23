@@ -52,8 +52,39 @@ public class Vista extends JFrame {
 		contentPane.add(resultadolbl, BorderLayout.CENTER);
 		
 		buscarbtn = new JButton("Ver Palabra");
+		buscarbtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Palabras mod = new Palabras();
+				resultadolbl.setText(mod.aleatorio());
+			}
+		});
 		buscarbtn.addActionListener(control);
 		contentPane.add(buscarbtn, BorderLayout.SOUTH);
 	}
 
+	public JLabel getResultadolbl() {
+		return resultadolbl;
+	}
+
+	public void setResultadolbl(JLabel resultadolbl) {
+		this.resultadolbl = resultadolbl;
+	}
+
+	public JButton getBuscarbtn() {
+		return buscarbtn;
+	}
+
+	public void setBuscarbtn(JButton buscarbtn) {
+		this.buscarbtn = buscarbtn;
+	}
+
+	public static Controlador getControl() {
+		return control;
+	}
+
+	public static void setControl(Controlador control) {
+		Vista.control = control;
+	}
+
+	
 }
