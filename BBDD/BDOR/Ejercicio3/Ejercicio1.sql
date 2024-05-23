@@ -5,7 +5,7 @@ grant all privileges to c##ejer3BDOR;
 
 set serveroutput on;
 
-create or replace type tTelefono as varray(4) of number;
+create or replace type tTelefono as varray(4) of number(9);
 /
 
 create or replace type TObjCodPostal as object(
@@ -47,6 +47,11 @@ create or replace type TObjProducto as object(
 )
 /
 
-
-
+create or replace type TObjLineaVenta as object(
+	CodLinea number,
+	Cantidad number,
+	Producto ref TObjProducto,
+	Venta ref tObjVenta
+)
+/
 
