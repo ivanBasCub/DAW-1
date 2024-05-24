@@ -123,8 +123,9 @@ insert into Productos values (52,'Chuces',20,15);
 -- Tablas Ventas
 
 insert into Ventas values(
-    1001, to_date('12-02-2024','DD-MM-YYYY'),(select ref(c) from clientes c where c.CodCl = 1)
-);
+    1001, to_date('12-02-2024','DD-MM-YYYY'),(select ref(c) from clientes c where c.CodCl = 1) 
+    -- Para referenciar a un dato dentro de una tabla se realiza de la forma mostrada en la linea anterior
+);	-- En el caso de que estemos haciendo un programa PL/SQL para referenciar un objeto dentro de otro usamos el siguiente comandos REF(nombre del objeto)
 insert into Ventas values(
     1002, to_date('27-03-2024','DD-MM-YYYY'),(select ref(c) from clientes c where c.CodCl = 2)
 );

@@ -104,6 +104,39 @@ where contains($p/descripcion,"x") or contains($p/descripcion,"X")
 return $p
 :)
 
-(:Ejercicio 19
+(:Ejercicio 19´
+for $p in //producto
+return (<descripcion>{string($p/descripcion)}</descripcion>,<longitud>{string-length($p/descripcion)}</longitud>)
+:)
+
+(:Ejercicio 20
+for $año in distinct-values(//producto/caducidad)
+order by $año
+ return <año>{$año}</año>
+:)
+
+(: Ejercicio 21
+for $fabricante in distinct-values(//producto/fabricante)
+order by string-length($fabricante)
+return <fabricante>{$fabricante}</fabricante>
+:)
+
+(:Ejercicio 22
+let $des := //producto/descripcion
+return (
+  <table>
+    <tr>
+      <th>Descripcion</th>
+    </tr>
+    {
+      for $p in $des
+      return (
+        <tr>
+         <td>{string($p)}</td>
+        </tr>
+      )
+    }
+  </table>
+)
 :)
 
