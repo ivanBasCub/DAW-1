@@ -1,4 +1,4 @@
-package practica1;
+package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import oracle.jdbc.proxy.annotation.Pre;
 
-public class FabricanteDAW {
+public class FabricanteDAO {
 
 	private static Connection conect() {
 		Connection con=null;		
