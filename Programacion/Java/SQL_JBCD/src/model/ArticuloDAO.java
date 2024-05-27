@@ -1,15 +1,15 @@
-package practica1;
+package model;
 
 import java.sql.*;
 
 
 
-public class ArticuloDAW {
+public class ArticuloDAO {
 	// Metodo para conectar a la BBDD
 	private static Connection conect() {
 		Connection con=null;		
 		String usr="c##bdarticulos",pass="bdarticulos";
-		String url="jdbc:oracle:thin:@10.1.2.167:1521:xe";
+		String url="jdbc:oracle:thin:@10.1.6.249:1521:xe";
 		
 		try {
 			con = DriverManager.getConnection(url,usr,pass);
@@ -18,6 +18,7 @@ public class ArticuloDAW {
 		}
 		return con;
 	}
+	
 	// Metodo para insertar un nuevo dato a traves de un objeto
 	public static void insert(Articulo art) {
 		if (art != null) {
@@ -26,10 +27,10 @@ public class ArticuloDAW {
 			
 			try {
 				PreparedStatement query = conex.prepareStatement(sql);
-				query.setString(1, art.getId());
-				query.setString(2, art.getName());                
-				query.setDouble(3, art.getPrice());
-				query.setString(4, art.getCodfab());
+				query.setInt(1, art.getCodArt());
+				query.setString(2, art.getNomArt());                
+				query.setDouble(3, art.getPrecio());
+				query.setInt(4, art.getCodFab());
 				query.executeUpdate();
 				conex.close();
 			} catch (SQLException e) {
@@ -52,12 +53,35 @@ public class ArticuloDAW {
 			ResultSet query = stmt.executeQuery();
 			
 			if (query.next()) {
-				art = new Articulo(codart, query.getString("nomart"), query.getInt("precio"), query.getString("codfab"));
+				art = new Articulo(query.getInt("codart"), query.getString("nomart"), query.getInt("precio"), query.getInt("codfab"));
 				conex.close();
 			}
 			
 		} catch (SQLException e) {
 			System.out.println("Error en la consulta SQL");
+		}
+		return art;
+	}
+	
+	public static Articulo readFab(String codart) {
+		Articulo art = null;
+		String sql = "Select a.*,f.nomfab from articulo a join fabricante f on a.codfab = f.codfab where a.codart = ?";
+		
+		Connection conex = conect();
+		
+		PreparedStatement stmt;
+		try {
+			stmt = conex.prepareStatement(sql);
+			stmt.setString(1, codart);
+			
+			ResultSet query = stmt.executeQuery();
+			
+			if(query.next()) {
+				art = new Articulo(query.getInt("codart"),query.getString("nomart"), query.getDouble("precio"),query.getString("nomfab"));
+				conex.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		return art;
 	}
@@ -72,10 +96,10 @@ public class ArticuloDAW {
                 Connection conexion = conect();
                 PreparedStatement sentencia = conexion.prepareStatement(sql);
 
-                sentencia.setString(1, articulo.getName());
-                sentencia.setDouble(2, articulo.getPrice());                
-                sentencia.setString(3, articulo.getCodfab());
-                sentencia.setString(4, articulo.getId()); 
+                sentencia.setString(1, articulo.getNomArt());
+                sentencia.setDouble(2, articulo.getPrecio());                
+                sentencia.setInt(3, articulo.getCodFab());
+                sentencia.setInt(4, articulo.getCodArt()); 
 
                 sentencia.executeUpdate();
                 conexion.close();
