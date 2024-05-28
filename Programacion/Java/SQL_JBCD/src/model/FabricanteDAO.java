@@ -39,7 +39,6 @@ public class FabricanteDAO {
 				conex.close();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return fab;
@@ -58,7 +57,6 @@ public class FabricanteDAO {
 				conex.close();
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -78,7 +76,6 @@ public class FabricanteDAO {
 				conex.close();
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
