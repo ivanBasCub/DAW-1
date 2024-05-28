@@ -55,7 +55,8 @@ create or replace type body tObjPeriodista as
 	end;
 
 	-- Funciones
-		-- Metodo getPeriodista
+
+	-- Metodo getPeriodista
 	member procedure getPeriodista is
 	begin
 		dbms_output.put_line('Datos del Periodista:');
@@ -65,18 +66,41 @@ create or replace type body tObjPeriodista as
 		dbms_output.put_line('Direccion: ' || self.DirEmp);
 		dbms_output.put_line('Especialidad: ' || self.Especialidad);
 		dbms_output.put_line('Sucursal: ');
-		dbms_output.put_line('Codigo: ' || self.Sucursal.CodSucursal);
-		dbms_output.put_line('Telefono: ' || self.Sucursal.Telefono);
-		dbms_output.put_line('Domicilio: ' || self.Sucursal.Domicilio);
 	end getPeriodista;	
 
-		-- Metodo setSucursal
+	-- Metodo setSucursal
 	member procedure setSucursal(cod number) is
 	begin
+		select ref(s) into self.Sucursal from Sucursales s where s.CodSucursal = cod;
 	end setSucursal;
-		self.Sucursal := select ref(s) from tObjSucursal s where s.CodSucursal = cod;
 end;
 /
 
+-- Tablas Anidadas
 create table Periodistas of tObjPeriodista;
 create table Sucursales of tObjSucursal;
+
+-- Insertar datos de ejemplo de Sucursales
+insert into Sucursales values(10,979458123,'C/Mayor');
+insert into Sucursales values(20,987654321,'C/Menor');
+insert into Sucursales values(30,123456789,'C/Mediana');
+
+-- Insertar datos de ejemplo de Periodistas
+insert into Periodistas values('12345678A','Ivan','Bascones','C/Alumno',
+    (select ref(s) from Sucursales s where s.CodSucursal = 20)
+,'Informatica');
+insert into Periodistas values('98765432B','Jose','Pezer','C/Profesor',
+(select ref(s) from Sucursales s where s.CodSucursal = 10)
+,'Magisterio');
+insert into Periodistas values('11111111C','Rogelio','Copas','C/Expulsado',
+(select ref(s) from Sucursales s where s.CodSucursal = 30)
+,'Mierda');
+
+-- Mostrar informacion de las tablas periodista y Sucursal
+declare
+	perio tObjPeriodista;
+begin
+	select value(p) into perio from Periodistas p where p.DNI = '11111111C';
+	perio.getPeriodista;
+end;
+/
