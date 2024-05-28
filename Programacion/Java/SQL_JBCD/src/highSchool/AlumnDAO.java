@@ -23,6 +23,13 @@ public class AlumnDAO {
 	}
 
 	// EXERCISE 1
+	/**
+	 * 
+	 * @param corte Nota de corte para filtrar los alumnos con menor nota
+	 * @param curso El curso que queremos mirar
+	 *
+	 * @return Devuelve un {@link ArrayList} de objetos {@link Alumn} que son del resultado de la consulta SQL
+	 */
 	public static ArrayList<Alumn> alumListNote(float corte, String curso){
 		ArrayList<Alumn> list = new ArrayList<>();
 		String sql = "select * from alumnos where (media >= ? and curso = ?)";
