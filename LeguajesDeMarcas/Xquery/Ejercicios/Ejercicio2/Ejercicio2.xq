@@ -60,10 +60,15 @@ return <Media>{avg($sumi/cantidad)}</Media>
 :)
 
 (:Ejercicio 10
+  Forma personal (No esta permitido el group by)
 for $sumi in //suministros/suministra
 let $prov := $sumi/numprov
 group by $prov
 return concat("Proveedor: ",$prov," Media de los productos: ",avg($sumi/cantidad))
+  Forma que lo ha hecho la profesora
+for $p in //proveedor
+let $m := avg(//suministros/suministra[numprov = $p/@numprov]/cantidad)
+return <res>{$p/@numprov, $m}</res>
 :)
 
 for $sumi in //suministros/suministra
