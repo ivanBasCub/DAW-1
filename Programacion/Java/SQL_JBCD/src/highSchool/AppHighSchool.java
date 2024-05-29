@@ -1,15 +1,13 @@
 package highSchool;
 
-import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Collections;
-
 import javax.swing.JOptionPane;
 
 public class AppHighSchool {
 
 	public static void main(String[] args) {
-		String[] options = {"Exercise 1","Exercise 2","All alumns","Exit"};
+		String[] options = {"Exercise 1","Exercise 2","Exercise 4","Exercise 5","Exit"};
 		ArrayList<Alumn> alumns;
 		int option;
 		
@@ -67,7 +65,10 @@ public class AppHighSchool {
 				
 
 				System.out.println("Order by the name");
-				Collections.sort(alumns);
+				alumns.sort(new Compa());
+				for (int i = 0; i < alumns.size(); i++) {
+					System.out.println(alumns.get(i).toString());
+				}
 				
 				System.out.println("Order by the id");
 				Collections.sort(alumns);
@@ -76,7 +77,11 @@ public class AppHighSchool {
 				}
 				
 				break;
-			default:
+			case 3:
+				curso = JOptionPane.showInputDialog("Give me the classrom");
+				AlumnDAO.writeArchArray(curso);
+				
+				AlumnDAO.readArchArray();
 				break;
 			}
 			

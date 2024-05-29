@@ -1,5 +1,13 @@
 package highSchool;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -179,5 +187,62 @@ public class AlumnDAO {
 		}
 		
 		return aux;
+	}
+	
+	//EXERCISE 5
+	public static void writeArchArray(String clasroom) {
+		ArrayList<Alumn> aux = new ArrayList<>();
+		Connection conex = connect();
+		String sql = "select  * from alumnos where curso = ?";
+		
+		try {
+			PreparedStatement stmt = conex.prepareStatement(sql);
+			stmt.setString(1, clasroom);
+			ResultSet query = stmt.executeQuery();
+			
+			while(query.next()) {
+				aux.add(new Alumn(query.getInt("num"),query.getString("nombre"),query.getDate("fnac"),query.getFloat("media"),query.getString("curso")));
+			}
+			
+		
+			ObjectOutputStream obj = new ObjectOutputStream(new FileOutputStream(new File("library\\data.dat")));
+		
+			for (Alumn alumn : aux) {
+				obj.writeObject(alumn);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void readArchArray() {
+		Alumn aux = null;
+		boolean keep=true;
+		
+		try {
+			ObjectInputStream obj = new ObjectInputStream(new FileInputStream(new File("library\\data.dat")));
+			// USAMOS UNA VARIABLE BOOLEANA PARA EL BUCLE Y CUANDO SE DE LA EXCEPCION EOFEXCEPTION SALIMOS DEL BUCLE
+			while(keep) {
+				aux = (Alumn) obj.readObject();
+				System.out.println(aux.toString());
+				;
+			}
+			
+		} catch (EOFException e) {
+			System.out.println("File finish");
+			keep=false;
+		}catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

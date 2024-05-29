@@ -1,8 +1,13 @@
 package highSchool;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Alumn implements Comparable<Alumn>{
+public class Alumn implements Comparable<Alumn>,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// Attributes
 	private int idAlum;
 	private String name;
