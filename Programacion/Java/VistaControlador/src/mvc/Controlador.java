@@ -3,7 +3,7 @@ package mvc;
 public class Controlador {
 
 	private Vista ventana;
-	private Conexion conect = new Conexion("c##bdarticulos", "bdarticulos", "192.168.1.35");
+	private Conexion conect = new Conexion("c##bdarticulos", "bdarticulos", "10.1.2.167");
 	
 	// Constructor
 	public Controlador(Vista ventana){
